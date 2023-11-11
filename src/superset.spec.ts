@@ -31,6 +31,14 @@ describe("SuperSet", function () {
         superset = new SuperSet([4, 5, 6]);
     });
 
+    it("can be used interchangeably with a Set", function () {
+        const expectSet = function (candidate: Set<any>) {
+            console.info(candidate);
+        }
+
+        expect(() => expectSet(new SuperSet([1, 2, 3, 4, 5]))).not.toThrow();
+    });
+
     describe("union", function () {
         it.each(TYPE_VALUE_ARRAY)(
             "returns combination of values within instance of %s and SuperSet",
